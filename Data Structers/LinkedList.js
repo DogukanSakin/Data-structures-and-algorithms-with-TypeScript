@@ -26,14 +26,6 @@ class LinkedList{
         current.next=node;
         this.size++;
     }
-    printList(){
-        if(this.head==null) return console.log("list is empty");      
-        let current=this.head;
-        while(current){
-            console.log(current.data);
-            current=current.next;
-        }
-    }
     appendWithIndex(data,index){
         if(index>0 &&  index.size>0) return this;
         if(index==0) return this.prepend(data);
@@ -60,12 +52,34 @@ class LinkedList{
         previous.next=current.next;
         this.size--;
     }
+    getWithIndex(index){
+        if(index>this.size || index<0) return console.log("index value is out of list length range!");   
+        let current=this.head;
+        let counter=0;
+        while(current){
+            if(counter==index){
+                console.log("Data:"+current.data);
+            }
+            counter++;
+            current=current.next;
+        }
+    }
+    printList(){
+        if(this.head==null) return console.log("list is empty");      
+        let current=this.head;
+        while(current){
+            console.log(current.data);
+            current=current.next;
+        }
+    }
+    
 
 }
 const linkedList=new LinkedList();
-linkedList.append(10);
-linkedList.prepend(20);
+linkedList.prepend(10);
+linkedList.append(20);
 linkedList.append(30);
 linkedList.appendWithIndex(15,1);
 linkedList.removeWithIndex(2);
+linkedList.getWithIndex(0);
 linkedList.printList();
