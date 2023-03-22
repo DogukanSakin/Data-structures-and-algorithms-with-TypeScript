@@ -1,4 +1,4 @@
-interface INode {
+export interface INode {
   next: null | INode;
   data: any;
 }
@@ -11,7 +11,7 @@ export class Node implements INode {
   }
 }
 class LinkedList {
-  head: null | INode;
+  head: null | Node;
   size: number;
   constructor() {
     this.head = null;
@@ -37,16 +37,16 @@ class LinkedList {
     }
     current.next = node;
   }
-  addWithIndex(node: INode, index: number) {
+  addWithIndex(node: Node, index: number) {
     if (index === this.size + 1) {
       return this.add(node);
     } else if (index === 0) {
       return this.prepend(node);
     }
     this.size++;
-    let current: INode | null = this.head,
+    let current: Node | null = this.head,
       counter: number = 0,
-      previous: INode | null;
+      previous: Node | null;
 
     while (counter < index) {
       previous = current;
@@ -57,7 +57,7 @@ class LinkedList {
     node.next = current;
   }
   search(data: any) {
-    let current: INode | null = this.head;
+    let current: Node | null = this.head;
     while (current) {
       if (current.data === data) {
         return console.log("Found");
@@ -67,8 +67,8 @@ class LinkedList {
     return console.log("Not found");
   }
   remove(data: any) {
-    let current: INode | null = this.head,
-      previous: INode | null;
+    let current: Node | null = this.head,
+      previous: Node | null;
     while (current) {
       if (current.data === data) {
         if (current === this.head) {
@@ -87,7 +87,7 @@ class LinkedList {
   }
   printList() {
     if (this.head) {
-      let current: INode | null = this.head;
+      let current: Node | null = this.head;
       while (current) {
         console.log(current.data);
         current = current.next;
@@ -98,11 +98,11 @@ class LinkedList {
     }
   }
 }
-const linkedList = new LinkedList();
+/*const linkedList = new LinkedList();
 linkedList.prepend(new Node(1));
 linkedList.prepend(new Node(2));
 linkedList.add(new Node(3));
 linkedList.addWithIndex(new Node(4), 2);
 linkedList.search(7);
 linkedList.remove(3);
-linkedList.printList();
+linkedList.printList();*/
