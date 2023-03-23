@@ -39,7 +39,7 @@ export class Queue {
     }
   }
 }
-const q = new Queue();
+/*const q = new Queue();
 q.enqueue(new Node(1));
 q.enqueue(new Node(2));
 q.enqueue(new Node(3));
@@ -47,4 +47,4 @@ q.enqueue(new Node(4));
 q.dequeue();
 q.dequeue();
 
-q.printList();
+q.printList();*/
