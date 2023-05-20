@@ -32,6 +32,8 @@ export class HashTable {
     for (let i = 0; i < key.length; i++) {
       hashCode += key.charCodeAt(i);
     }
+  
+    
     return hashCode;
   }
 }
